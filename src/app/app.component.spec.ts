@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'covid19-live-tracking'`, () => {
+  it(`should have as title 'covid-predict'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('covid19-live-tracking');
+    expect(app.title).toEqual('covid-predict');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('covid19-live-tracking app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('covid-predict app is running!');
   });
 });
