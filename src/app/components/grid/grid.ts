@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 
 export interface PeriodicElement {
@@ -18,6 +18,9 @@ export interface PeriodicElement {
   styleUrls: ['grid.css'],
 })
 export class Grid implements OnInit {
+
+  @Input() dataSource:any;
+
   public ELEMENT_DATA: PeriodicElement[] = [];
 
   displayedColumns: string[] = ['state', 'active', 'confirmed', 'death', 'recovered'];
