@@ -7,8 +7,8 @@ import * as $ from 'jquery';
 })
 export class PieChart implements OnInit {
     // Pie
-    public pieChartLabels: Array<String> = ['Chrome', 'Safari', 'Firefox', 'Internet Explorer', 'Other'];
-    public pieChartData: Array<number> = [50, 20, 20, 10, 10];
+    public pieChartLabels: Array<String> = ['SAMPLE'];
+    public pieChartData: Array<number> = [0];
     public pieChartType: string = 'pie';
 
     ngOnInit() {
