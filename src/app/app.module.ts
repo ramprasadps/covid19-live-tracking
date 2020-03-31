@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 // import {PieChart} from './components/pie-chart/pie-chart'
 // import {Home} from './modules/home'
 // import {Card} from './components/card/card'
-import {Grid} from './components/grid/grid'
+import { Grid } from './components/grid/grid'
+import { DialogModal } from './components/dialog-modal/dialog-modal'
 import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './material-module';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import {DemoMaterialModule} from './material-module';
     // PieChart
     // Home,
     Grid,
+    DialogModal
     // Card
   ],
   imports: [
@@ -26,12 +29,14 @@ import {DemoMaterialModule} from './material-module';
     BrowserAnimationsModule,
     DemoMaterialModule
   ],
+  entryComponents: [DialogModal],
   providers: [],
   bootstrap: [
     // LineChart, 
     // PieChart
     // Home,
     Grid,
+    // Dialog
     // Card
   ]
 })
