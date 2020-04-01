@@ -39,4 +39,8 @@ export class DialogModal implements OnInit {
     }
     this.dataSource = [...this.ELEMENT_DATA]
    }
+
+   public getTotalConfirmed(){
+    return this.data['stateTotalConfirmed'];
+   }
 }

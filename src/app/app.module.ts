@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 // import {PieChart} from './components/pie-chart/pie-chart'
 // import {Home} from './modules/home'
 // import {Card} from './components/card/card'
-import { Grid } from './components/grid/grid'
+import { TableGrid } from './components/table-grid/table-grid'
 import { DialogModal } from './components/dialog-modal/dialog-modal'
 import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,7 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     // LineChart, 
     // PieChart
     // Home,
-    Grid,
+    TableGrid,
     DialogModal
     // Card
   ],
@@ -35,7 +35,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     // LineChart, 
     // PieChart
     // Home,
-    Grid,
+    TableGrid,
     // Dialog
     // Card
   ]

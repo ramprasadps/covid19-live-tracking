@@ -5,8 +5,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 export interface StateData {
   state: string;
-  active: number;
   confirmed: number;
+  active: number;
   death: number;
   recovered: number;
 }
@@ -15,19 +15,23 @@ export interface StateData {
  * @title Dynamic grid-list
  */
 @Component({
-  selector: 'grid',
-  templateUrl: 'grid.html',
-  styleUrls: ['grid.css'],
+  selector: 'table-grid',
+  templateUrl: 'table-grid.html',
+  styleUrls: ['table-grid.css'],
 })
-export class Grid implements OnInit {
+export class TableGrid implements OnInit {
 
   @Input() dataSource: any;
+  @Input() totalConfirmed:number;
+  @Input() totalActive:number;
+  @Input() totalDecreased:number;
+  @Input() totalRecovered:number;
 
   public ELEMENT_DATA: StateData[] = [];
 
   public stateWiseDataMap = {};
 
-  displayedColumns: string[] = ['state', 'confirmed', 'active', 'death', 'recovered'];
+  displayedColumns: string[] = ['state', 'confirmed', 'death', 'recovered'];
   // dataSource = this.ELEMENT_DATA;
   
   constructor(public dialog: MatDialog) {}
@@ -41,19 +45,23 @@ export class Grid implements OnInit {
       data['statewise'].forEach((cases, index) => {
         var total;
         if (index === 0) {
-          this.totalMap = {
-            state: cases['state'],
-            active: +cases['active'],
-            confirmed: +cases['confirmed'],
-            death: +cases['deaths'],
-            recovered: +cases['recovered']
-          };
+          // this.totalMap = {
+          //   state: cases['state'],
+          //   confirmed: +cases['confirmed'],
+          //   active: +cases['active'],
+          //   death: +cases['deaths'],
+          //   recovered: +cases['recovered']
+          // };
+          this.totalConfirmed = +cases['confirmed'];
+          this.totalActive = +cases['active'];
+          this.totalDecreased = +cases['deaths'];
+          this.totalRecovered = +cases['recovered'];
         } else {
           this.ELEMENT_DATA.push(
             {
               state: cases['state'],
-              active: +cases['active'],
               confirmed: +cases['confirmed'],
+              active: +cases['active'],
               death: +cases['deaths'],
               recovered: +cases['recovered']
             });
@@ -69,12 +77,13 @@ export class Grid implements OnInit {
 
   public getStateDetails(clickedRow) {
     var state = clickedRow['state'];
+    var stateTotalConfirmed = clickedRow['confirmed'];
     var stateDataMap = this.stateWiseDataMap[state];
     const dialogConfig = new MatDialogConfig();
     const dialogRef = this.dialog.open(DialogModal, {
       width: '250px',
       height: '400px',
-      data: { state: state, districtData: stateDataMap['districtData'] }
+      data: { state: state, stateTotalConfirmed: stateTotalConfirmed, districtData: stateDataMap['districtData'] }
     });
 
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
