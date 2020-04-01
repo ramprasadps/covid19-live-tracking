@@ -24,7 +24,7 @@ export class TableGrid implements OnInit {
   @Input() dataSource: any;
   @Input() totalConfirmed:number;
   @Input() totalActive:number;
-  @Input() totalDecreased:number;
+  @Input() totalDeceased:number;
   @Input() totalRecovered:number;
 
   public ELEMENT_DATA: StateData[] = [];
@@ -54,7 +54,7 @@ export class TableGrid implements OnInit {
           // };
           this.totalConfirmed = +cases['confirmed'];
           this.totalActive = +cases['active'];
-          this.totalDecreased = +cases['deaths'];
+          this.totalDeceased = +cases['deaths'];
           this.totalRecovered = +cases['recovered'];
         } else {
           this.ELEMENT_DATA.push(
