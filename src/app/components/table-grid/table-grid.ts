@@ -76,6 +76,9 @@ export class TableGrid implements OnInit {
   }
 
   public getStateDetails(clickedRow) {
+    if(window['JsInterface']){
+      window['JsInterface'].getDeviceModel();
+    }
     var state = clickedRow['state'];
     var stateTotalConfirmed = clickedRow['confirmed'];
     var stateDataMap = this.stateWiseDataMap[state];
